@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#173f2d" />
+    <meta name="description" content="Demo interaktif timbangansawit.id: aplikasi PC timbangan & aplikasi HP Owner, berjalan di browser dengan data contoh." />
+    <link rel="icon" href="./favicon.ico" />
+    <title>Demo timbangansawit.id</title>
+    <script type="module" crossorigin src="./assets/index-DZPPAJcM.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BEqlwS1-.css">
+  </head>
+  <body>
+    <header class="bar">
+      <div class="brand">
+        <img src="./logo-mark.png" alt="" width="28" height="28" />
+        <span class="brand-name">timbangansawit.id</span>
+        <span class="badge" title="Bukan sistem produksi. Data contoh, tersimpan hanya di browser ini."><span class="long">MODE </span>DEMO</span>
+      </div>
+
+      <div class="seg" role="tablist" aria-label="Tampilan">
+        <button role="tab" data-view="pc"><span class="long">Aplikasi </span>PC</button>
+        <button role="tab" data-view="hp"><span class="long">Aplikasi </span>HP Owner</button>
+        <button role="tab" data-view="both" class="wide-only">Keduanya</button>
+      </div>
+
+      <form class="sim" id="sim" autocomplete="off" title="Pengganti indikator timbangan selama demo">
+        <span class="sim-label">Simulator timbangan</span>
+        <input id="simKg" type="number" inputmode="numeric" min="0" max="80000" step="10" placeholder="mis. 8500" aria-label="Berat truk (kg)" />
+        <button type="submit" class="sim-btn">Truk naik</button>
+        <button type="button" class="sim-btn ghost" id="simOff">Turun</button>
+        <output id="simOut" class="sim-out" aria-live="polite">– kg</output>
+      </form>
+
+      <div class="actions">
+        <button type="button" id="guideBtn" class="btn-ghost">Panduan</button>
+        <button type="button" id="resetBtn" class="btn-ghost">Reset data</button>
+      </div>
+    </header>
+
+    <main id="stage" class="stage">
+      <div class="device pc" id="pcDev" hidden>
+        <div class="titlebar">
+          <img src="./logo-mark.png" alt="" width="14" height="14" />
+          <span>timbangansawit.id · Aplikasi PC (Windows)</span>
+          <span class="titlebar-ctl" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <iframe id="pcFrame" title="Aplikasi PC timbangansawit.id"></iframe>
+      </div>
+      <div class="device hp" id="hpDev" hidden>
+        <iframe id="hpFrame" title="Aplikasi HP Owner timbangansawit.id"></iframe>
+      </div>
+      <p class="pc-note" id="pcNote" hidden>
+        Aplikasi PC dirancang untuk layar komputer (1366×768). Buka demo ini di laptop/PC agar nyaman dicoba.
+      </p>
+
+      <div class="loading" id="loading">
+        <img src="./logo-mark.png" alt="" width="56" height="56" />
+        <h1>Menyiapkan demo…</h1>
+        <p id="loadingMsg">Memuat aplikasi</p>
+        <div class="bar-progress"><span></span></div>
+        <p class="muted">Sekali saja di browser ini. Data contoh dibuat langsung di perangkat Anda.</p>
+      </div>
+    </main>
+
+    <aside class="guide" id="guide" aria-label="Panduan demo" hidden>
+      <div class="guide-head">
+        <h2>Panduan demo</h2>
+        <button type="button" class="icon-btn" id="guideClose" aria-label="Tutup panduan">×</button>
+      </div>
+      <div class="guide-body">
+        <p>
+          Ini <b>demo interaktif</b> timbangansawit.id: aplikasi PC di jembatan timbang dan aplikasi HP untuk Owner,
+          dengan data contoh 14 hari terakhir. Semua tombol bisa dicoba; perubahan Anda tersimpan di browser ini saja.
+          Nama, nomor, dan transaksi di dalamnya fiktif.
+        </p>
+
+        <h3>Akun demo</h3>
+        <table class="accounts">
+          <tr><th>User</th><th>Peran</th></tr>
+          <tr><td><code>hendra</code></td><td>Owner: semua menu, PC &amp; HP</td></tr>
+          <tr><td><code>rina</code></td><td>Admin: kasir, kas, timbang</td></tr>
+          <tr><td><code>agus</code></td><td>Operator timbang (akses terbatas)</td></tr>
+        </table>
+        <p class="muted">Password semua akun: <code>demo1234</code>. Kode pemulihan Owner (untuk coba “Lupa password”): <code id="recoveryCode">–</code></p>
+
+        <h3>Coba alur ini</h3>
+        <ol class="steps">
+          <li>
+            <b>Beli TBS dari petani.</b> Di PC, login <code>agus</code> → <i>Timbangan 1</i>. Di bar atas isi
+            <i>Simulator timbangan</i> (mis. 8500) → <i>Truk naik</i>. Tunggu <i>STABIL</i>, tekan <i>Ambil berat</i> (F8),
+            simpan; kupon tampil sebagai pratinjau cetak. (Tulisan “hanya bisa diatur Owner” di layar adalah aturan
+            aplikasi asli; panel simulator di bar atas khusus untuk demo.)
+          </li>
+          <li>
+            <b>Bongkar &amp; bayar.</b> <i>Turun</i>, lalu naikkan truk kosong (mis. 2300) → <i>Timbangan 2</i> → pilih tiket,
+            ambil berat Tara, isi potongan &amp; harga, pilih cara bayar.
+          </li>
+          <li>
+            <b>Kirim ke PKS.</b> <i>Timbang Jual 1</i> (truk kosong) lalu <i>Timbang Jual 2</i> (truk bermuatan) → surat jalan.
+            Rekonsiliasi angka PKS dan retur ada di menu PKS (login <code>hendra</code>).
+          </li>
+          <li>
+            <b>Pantau dari HP.</b> Buka <i>Aplikasi HP Owner</i>, login <code>hendra</code>. Data PC sudah ada di sana.
+            Coba <i>Kas → Catat</i>, kirim ke PC, lalu lihat catatannya muncul di menu Kas aplikasi PC.
+          </li>
+        </ol>
+
+        <h3>Batasan demo</h3>
+        <ul class="limits">
+          <li>Timbangan memakai <b>simulator</b>. Indikator asli di lokasi diuji saat pemasangan.</li>
+          <li>Cetak berupa <b>pratinjau di browser</b>. Di lokasi, dokumen keluar di printer continuous form.</li>
+          <li>Di sini PC dan “VPS” ada di satu browser, jadi sinkron terasa instan. Aslinya PC tetap bekerja tanpa internet dan mengirim data tiap ±15 detik saat online.</li>
+          <li>Data tersimpan di <b>browser ini saja</b>. Orang lain yang membuka link ini melihat data contohnya sendiri.</li>
+          <li>Ini bukan sistem produksi. Jangan masukkan data asli.</li>
+        </ul>
+        <p class="muted" id="seededInfo"></p>
+        <button type="button" class="btn" id="guideReset">Reset data demo</button>
+      </div>
+    </aside>
+
+    <div class="modal" id="printModal" hidden>
+      <div class="modal-card print-card" role="dialog" aria-modal="true" aria-labelledby="printTitle">
+        <div class="modal-head">
+          <div>
+            <h2 id="printTitle">Pratinjau cetak</h2>
+            <p class="muted">Mode demo: di lokasi, dokumen ini langsung keluar di printer.</p>
+          </div>
+          <button type="button" class="icon-btn" id="printClose" aria-label="Tutup">×</button>
+        </div>
+        <div class="paper-wrap" id="paperWrap"><iframe id="paper" title="Dokumen cetak" sandbox="allow-same-origin allow-modals"></iframe></div>
+        <div class="modal-actions">
+          <button type="button" class="btn" id="printBrowser">Cetak lewat browser</button>
+          <button type="button" class="btn primary" id="printDone">Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="confirmModal" hidden>
+      <div class="modal-card small" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle">
+        <h2 id="confirmTitle">Reset data demo?</h2>
+        <p>Semua perubahan Anda di demo ini dihapus dan data contoh 14 hari dibuat ulang (tanggal mengikuti hari ini).</p>
+        <div class="modal-actions">
+          <button type="button" class="btn" id="confirmNo">Batal</button>
+          <button type="button" class="btn danger" id="confirmYes">Reset data</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" hidden></div>
+  </body>
+</html>
