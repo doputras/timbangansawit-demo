@@ -8,7 +8,7 @@
     <meta name="description" content="Demo interaktif timbangansawit.id: aplikasi PC timbangan & aplikasi HP Owner, berjalan di browser dengan data contoh." />
     <link rel="icon" href="./favicon.ico" />
     <title>Demo timbangansawit.id</title>
-    <script type="module" crossorigin src="./assets/index-BWqUbWCc.js"></script>
+    <script type="module" crossorigin src="./assets/index-frQzm2de.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BEqlwS1-.css">
   </head>
   <body>
@@ -80,8 +80,9 @@
         <table class="accounts">
           <tr><th>User</th><th>Peran</th></tr>
           <tr><td><code>hendra</code></td><td>Owner: semua menu, PC &amp; HP</td></tr>
-          <tr><td><code>rina</code></td><td>Admin: kasir, kas, timbang</td></tr>
-          <tr><td><code>agus</code></td><td>Operator timbang (akses terbatas)</td></tr>
+          <tr><td><code>rina</code></td><td>Admin: timbang, kas, kirim PKS, master data</td></tr>
+          <tr><td><code>agus</code></td><td>Operator: semua penimbangan, laporan, nota &amp; retur PKS</td></tr>
+          <tr><td><code>dewi</code></td><td>Keuangan: timbang luar, piutang PKS, semua menu keuangan</td></tr>
         </table>
         <p class="muted">Password semua akun: <code>demo1234</code>. Kode pemulihan Owner (untuk coba “Lupa password”): <code id="recoveryCode">–</code></p>
 
@@ -95,11 +96,23 @@
           </li>
           <li>
             <b>Bongkar &amp; bayar.</b> <i>Turun</i>, lalu naikkan truk kosong (mis. 2300) → <i>Timbangan 2</i> → pilih tiket,
-            ambil berat Tara, isi potongan &amp; harga, pilih cara bayar.
+            ambil berat Tara, isi potongan &amp; harga, pilih cara bayar. Struk menjelaskan hitungannya:
+            Bruto = Gross − Tara, Netto Bayar = Bruto − Potongan, Total = Netto Bayar × Harga.
+            Bayar tunai butuh <b>shift kas</b> yang terbuka (penanda di bar atas aplikasi).
           </li>
           <li>
             <b>Kirim ke PKS.</b> <i>Timbang Jual 1</i> (truk kosong) lalu <i>Timbang Jual 2</i> (truk bermuatan) → surat jalan.
-            Rekonsiliasi angka PKS dan retur ada di menu PKS (login <code>hendra</code>).
+            Saat nota PKS datang: <i>Kirim PKS → Input nota PKS</i> (Bruto &amp; Netto PKS); selisih perjalanan dihitung otomatis.
+          </li>
+          <li>
+            <b>Serah terima kas.</b> Login <code>rina</code> → <i>Pembukuan Kas → Tutup shift</i> (hitung uang di laci).
+            Lalu login <code>dewi</code> → <i>Buka shift</i> dan masukkan uang yang diterima. Bila kurang, Owner
+            memutuskan di HP (<i>Kas</i>) atau PC: jadi hutang admin sebelumnya, atau ditanggung RAMP.
+          </li>
+          <li>
+            <b>Koreksi &amp; hapus (Owner).</b> Login <code>hendra</code> → <i>Transaksi</i> → klik tiket → <i>Koreksi</i>:
+            ubah berat/harga dan lihat dampaknya ke stok &amp; kas sebelum menyimpan. <i>Hapus</i> menyembunyikan tiket dari
+            laporan; jejaknya ada di <i>Audit Log</i>.
           </li>
           <li>
             <b>Pantau dari HP.</b> Buka <i>Aplikasi HP Owner</i>, login <code>hendra</code>. Data PC sudah ada di sana.
@@ -110,7 +123,7 @@
         <h3>Batasan demo</h3>
         <ul class="limits">
           <li>Timbangan memakai <b>simulator</b>. Indikator asli di lokasi diuji saat pemasangan.</li>
-          <li>Cetak berupa <b>pratinjau di browser</b>. Di lokasi, dokumen keluar di printer continuous form.</li>
+          <li>Cetak berupa <b>pratinjau di browser</b>. Di lokasi, dokumen keluar di printer dot-matrix, kertas continuous form 9,5″ × 11″.</li>
           <li>Di sini PC dan “VPS” ada di satu browser, jadi sinkron terasa instan. Aslinya PC tetap bekerja tanpa internet dan mengirim data tiap ±15 detik saat online.</li>
           <li>Data tersimpan di <b>browser ini saja</b>. Orang lain yang membuka link ini melihat data contohnya sendiri.</li>
           <li>Ini bukan sistem produksi. Jangan masukkan data asli.</li>
